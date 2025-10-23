@@ -45,7 +45,7 @@ const BookingCard = ({ data, onEdit }) => {
             <p className="text-2xl font-bold text-gray-800">{data.outletPlanToday}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-500">LRB Booking</p>
+            <p className="text-sm text-gray-500">LRB Sale</p>
             <p className="text-2xl font-bold text-gray-800">{data.lrbBooking}</p>
           </div>
           <div>
