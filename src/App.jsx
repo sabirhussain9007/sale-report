@@ -6,9 +6,9 @@ const initialData = {
   date: "02-11-2025",
   district: "3",
   zone: "K",
-  psr: "Sabir",
-  outletPlan: 10,
-  lrbSale: 80
+  psr: "Sabir Hussain",
+  outletPlan: 40,
+  lrbSale: 500
 }
 
 const App = () => {
