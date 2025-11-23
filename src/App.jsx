@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import BookingCard from './components/BookingCard';
-import UpdateModal from './components/UpdateModal';
+import React, { useState } from "react"
+import { ReportCard } from "./components/ReportCard"
+import { EditForm } from "./components/EditForm"
 
 const initialData = {
-  bookingDate: '2025-10-20',
-  district: '03',
-  zone: 'K',
-  psrName: 'Sabir Hussain',
-  outletPlanToday: 40,
-  lrbBooking: 970,
-};
-
-function App() {
-  const [bookingData, setBookingData] = useState(initialData);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleSaveData = (updatedData) => {
-    setBookingData(updatedData);
-    handleCloseModal();
-  };
-
-  return (
-    <>
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-4">
-     
-      <BookingCard data={bookingData} onEdit={handleOpenModal} />
-      <UpdateModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onSave={handleSaveData}
-        initialData={bookingData}
-      />
-    </div>
-    </>
-  );
+  date: "02-11-2025",
+  district: "3",
+  zone: "K",
+  psr: "Sabir",
+  outletPlan: 10,
+  lrbSale: 80
 }
 
-export default App;
+const App = () => {
+  const [reportData, setReportData] = useState(initialData)
+  const [isEditing, setIsEditing] = useState(false)
+
+  const handleSave = updatedData => {
+    setReportData(updatedData)
+    setIsEditing(false)
+  }
+
+  const handleCancel = () => {
+    setIsEditing(false)
+  }
+
+  return (
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center p-4 font-sans">
+      <div className="w-full max-w-md">
+        {isEditing ? (
+          <EditForm
+            initialData={reportData}
+            onSave={handleSave}
+            onCancel={handleCancel}
+          />
+        ) : (
+          <ReportCard data={reportData} onEdit={() => setIsEditing(true)} />
+        )}
+      </div>
+      <footer className="absolute bottom-4 text-center w-full text-gray-500 text-sm">
+        <p>Smart Report Card Application</p>
+      </footer>
+    </div>
+  )
+}
+
+export default App
