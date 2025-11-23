@@ -6,10 +6,10 @@ import { DownloadIcon } from "./icons/DownloadIcon"
 
 const DataRow = ({ label, value, isHighlighted = false }) => (
   <div className="flex justify-between items-center py-3 px-6 border-b border-gray-100 last:border-b-0">
-    <p className="text-sm text-gray-500 ">{label}</p>
+    <p className="text-lg font-bold text-gray-500 ">{label}</p>
     <p
-      className={`text-sm font-medium ${
-        isHighlighted ? "text-indigo-600 font-bold" : "text-gray-800 font-bold"
+      className={`text-lg font-bold bg-slate-300 rounded-full w-24 text-center ${
+        isHighlighted ? "text-indigo-600 " : "text-gray-800 "
       }`}
     >
       {value}
@@ -45,9 +45,9 @@ export const ReportCard = ({ data, onEdit }) => {
       <Card className="w-full max-w-md mx-auto">
         <div ref={cardRef} className="bg-white">
           <div className="p-6 bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
-            <p className="text-xs uppercase tracking-wider">{data.date}</p>
+            <p className="text-lg uppercase font-bold tracking-wider">{data.date}</p>
             <h2 className="text-2xl font-bold mt-1">{data.psr}</h2>
-            <p className="text-sm opacity-80">{`District: ${data.district} | Zone: ${data.zone}`}</p>
+            <p className="text-sm font-bold opacity-80">{`District: ${data.district} | Zone: ${data.zone}`}</p>
           </div>
           <div className="bg-gray-100 font-bold ">
             <DataRow label="Outlet Plan" value={data.outletPlan} />
